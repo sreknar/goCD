@@ -1,7 +1,7 @@
 ---
 pipelines:
   sample-pipeline:
-    group: sample-group
+    group: defaultGroup
     label: "${COUNT}"
     materials:
      repo: 
