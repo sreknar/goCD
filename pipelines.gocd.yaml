@@ -5,16 +5,15 @@ pipelines:
     label: "${COUNT}"
     materials:
      repo: 
-       branch: master
-       git: "https://github.com/sreknar/goCD.git"
-       
-     stages:
-       sample-stage:
-         jobs:
-           sample-jobs:
-             tasks:
-               exec:
-                 command: dir
-                 run_if : any
+       branch: main
+       git: "https://github.com/sreknar/goCD.git"       
+    stages:
+      sample-stage:
+        jobs:
+          sample-jobs:
+            tasks:
+              exec:
+                command: dir
+                run_if : any
                    
                   
