@@ -1,19 +1,35 @@
----
+format_version: 10
 pipelines:
-  sample-pipeline:
+  sample2-pipeline:
     group: defaultGroup
-    label: "${COUNT}"
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
     materials:
-     repo: 
-       branch: main
-       git: "https://github.com/sreknar/goCD.git"       
+      git-526cda3:
+        git: https://github.com/sreknar/goCD.git
+        shallow_clone: false
+        auto_update: true
+        branch: main
     stages:
-      sample-stage:
+    - sample-stage:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
         jobs:
-          sample-jobs:
+          sample-job:
+            timeout: 0
             tasks:
-              exec:
+            - exec:
                 command: dir
-                run_if : any
-                   
-                  
+                run_if: passed
+            - exec:
+                arguments:
+                - sample pipeline As Code application
+                command: echo
+                run_if: passed
+    parameters:
+      env_sample: dummy value
