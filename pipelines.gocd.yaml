@@ -14,10 +14,7 @@ pipelines:
            sample-jobs:
              tasks:
                exec:
-                 arguments:
-                   - "-c"
-                   - "date"
-               command: batch
-               run_if : any
+                 command: dir
+                 run_if : any
                    
                   
