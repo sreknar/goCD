@@ -1,0 +1,23 @@
+---
+pipelines:
+  sample-pipeline:
+    group: sample-group
+    label: "${COUNT}"
+    materials:
+     repo: 
+       branch: master
+       git: "https://github.com/sreknar/goCD.git"
+       
+     stages:
+       sample-stage:
+         jobs:
+           sample-jobs:
+             tasks:
+               exec:
+                 arguments:
+                   - "-c"
+                   - "date"
+               command: batch
+               run_if : any
+                   
+                  
